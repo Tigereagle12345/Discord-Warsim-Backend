@@ -5,7 +5,7 @@ import menus
 import calc
 
 class country:
-    def __init__(self, ID, GOLD, LAND, ESOLDIER, SOLDIER, PSOLDIER, TECH, WAR, ISPLY, NAME):
+    def __init__(self, ID, GOLD, LAND, ESOLDIER, SOLDIER, PSOLDIER, TECH, WAR, ISPLY, NAME, LEVEL, XP):
         self.id = ID
         self.gold = GOLD
         self.land = LAND
@@ -17,30 +17,5 @@ class country:
         self.warlike = WAR
         self.isPlayer = ISPLY
         self.name = NAME
-    def battle(self, type, isVIC, stakes, outcome):
-        if isVIC == 1:
-            ### Type one is a raid, type two is a skirmish, type three is a full blown invasion
-            if type == 1:
-                ### Loss
-                if outcome == 1:
-                    self.gold -= stakes
-                ### Victory
-                else:
-                    vict = 'yes'
-                    ### Defensive victories don't have rewards
-            elif type == 3:
-                if outcome == 1:
-                    self.land -= 1
-                ### Victory
-                else:
-                    vict = 'yes'
-                    ### Defensive victories don't have rewards
-        elif isVIC == 0:
-            if type == 3:
-                if outcome == 0:
-                    self.land += stakes
-                else:
-                    deft = 'yes'
-            elif type == 1:
-                if outcome == 0:
-                    self.gold += stakes
+        self.level = LEVEL
+        self.xp = XP
