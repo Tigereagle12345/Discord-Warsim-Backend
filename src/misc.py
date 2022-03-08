@@ -1,3 +1,4 @@
+### A core module of the game, used primarily for miscellaneous tasks used by most modules
 import os
 import random
 
