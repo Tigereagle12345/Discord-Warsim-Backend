@@ -2,8 +2,8 @@
 import os
 import random
 
-def randStr(min, max):
-    return str(random.randrange(min, max))
+def randStr(start, stop=None, step=1):
+    return str(random.randrange(start, stop, step))
 class ForegroundColors:
     ### ANSI color codes
     BLACK = "\033[0;30m"

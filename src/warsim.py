@@ -10,6 +10,5 @@ class user:
         self.peasant = PSOLDIER
         self.men = self.elite + self.troop + self.peasant
         self.tech = TECH
-        self.name = NAME
         self.level = LEVEL
         self.xp = XP
