@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # Savefiles 'n' shit
-Savefiles/
-resources/
+*.wdf
+*.bak.wdf
