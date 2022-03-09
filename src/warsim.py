@@ -40,5 +40,5 @@ class purchases:
     ###     <--- END PROPERTIES --->
     ### <--- END ITEM --->
     def __init__(self):
-        purchaseList = open('config/purchases.sdc')
+        purchaseList = open('config/purchases.txt')
         self.purchaseList = purchaseList.read
