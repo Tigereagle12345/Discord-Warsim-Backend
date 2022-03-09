@@ -27,6 +27,11 @@ def newUser(id : str, choice : int):
     ###     ...ETC...
     ### <--- END USER --->
     ### ETC
+    ### TODO: Add choices
+    ### Choices will be:
+    ### 1. Standard-No risk, no reward
+    ### 2. Russian roulette-High risk, high reward
+    ### 3. Selling your soul to the devil-Extrodinarily high risk, extrodinaryily high reward
     if choice == 1:
         land = randStr(3,11)
         gold = randStr(7500,15001)
@@ -246,17 +251,19 @@ def newUser(id : str, choice : int):
             plague = ['Non-existant', '0 :: No severity', '0 :: No lethality', '0 :: No infectivity', '0 :: None infected','0 :: None infected','0 :: None infected',]
     file = open(id + '.wdf', 'x')
     file.write('<--- START USER --->\n')
-    file.write('\tID=' + id + '\n')
-    file.write('\tLAND=' + land + '\n')
+    file.write('\t<--- START GENERIC --->\n')
+    file.write('\t\tID=' + id + '\n')
+    file.write('\t\tLAND=' + land + '\n')
+    file.write('\t\tGOLD=' + gold + '\n')
+    file.write('\t\tTECH=' + tech + '\n')
+    file.write('\t\tLEVEL=1\n')
+    file.write('\t\tXP=' + xp + '\n')
+    file.write('\t<--- END GENERIC --->\n')
     file.write('\t<--- START LAND --->\n')
     file.write('\t\tURBAN=' + urban + '\n')
     file.write('\t\tRURAL=' + country + '\n')
     file.write('\t\tTOWN=' + towns + '\n')
     file.write('\t<--- END LAND --->\n')
-    file.write('\tGOLD=' + gold + '\n')
-    file.write('\tTECH=' + tech + '\n')
-    file.write('\tLEVEL=1\n')
-    file.write('\tXP=' + xp + '\n')
     file.write('\t<--- START POPULATION --->\n')
     file.write('\t\tURBAN=' + urbanPop + '\n')
     file.write('\t\tRURAL=' + countryPop + '\n')
@@ -265,7 +272,7 @@ def newUser(id : str, choice : int):
     file.write('\t<--- START PLAGUE --->\n')
     for i in plague:
         file.write('\t\t' + i + '\n')
-    file.write('\t<--- START PLAGUE --->\n')
+    file.write('\t<--- END PLAGUE --->\n')
     file.write('\t<--- START MILITARY --->\n')
     file.write('\t\tELITE=' + elite + '\n')
     file.write('\t\tSOLDIER=' + soldier + '\n')
@@ -277,6 +284,7 @@ def newUser(id : str, choice : int):
     file.write('\t<--- START ALLIES --->\n')
     file.write('\t\t :: New users don\'t have allies, stupid')
     file.write('\t<--- END ALLIES --->\n')
+    file.write('<--- END USER --->\n')
     file.close()
     del file
     file = open(id + '.wdf', 'r')
@@ -292,3 +300,51 @@ def newUser(id : str, choice : int):
     file.write(b64encode(File.encode('unicode-escape')))
     file.close()
     del file
+class savefile:
+    def __init__(self, id : str):
+        self.id = id
+        tmp = open(id + '.wdf', 'r+b')
+        self.filedata = b64decode(tmp.read()).decode('unicode-ecape')
+        tmp.close()
+        self.landdata = partition(self.filedata, '\t<--- START LAND --->\n', '\t<--- END LAND --->\n')
+        self.populationdata = partition(self.filedata, '\t<--- START POPULATION --->\n', '\t<--- END POPULATION --->\n')
+        self.militarydata = partition(self.filedata, '\t<--- START MILITARY --->\n', '\t<--- END MILITARY --->\n')
+        self.purchasedata = partition(self.filedata, '\t<--- START PURCHASES --->\n', '\t<--- END PURCHASES --->\n')
+        self.plaguedata = partition(self.filedata, '\t<--- START PLAGUE --->\n', '\t<--- END PLAGUE --->\n')
+        self.allydata = partition(self.filedata, '\t<--- START ALLIES --->\n', '\t<--- END ALLIES --->\n')
+        self.genericdata = partition(self.filedata, '\t<--- START GENERIC --->\n', '\t<--- END GENERIC --->\n')
+    def removeComments(self,replaceInFile : bool):
+        tempFileData = self.filedata.partition('\n')[0]
+        for i in self.filedata:
+            if i == tempFileData:
+                pass
+            elif '::' in i:
+                tempFileData += i.partition('::')[0]
+            else:
+                tempFileData += i
+        if replaceInFile == True:
+            os.remove(id + '.bak.wdf')
+            tmp = open(id + '.bak.wdf', 'xb')
+            tmp.write(b64encode(self.filedata.encode('unicode-escape')))
+            tmp.close()
+            del tmp
+            tmp = open(id + '.wdf', 'w+b')
+            tmp.write(b64encode(tempFileData.encode('unicode-escape')))
+            tmp.close()
+            del tmp
+            self.filedata = tempFileData
+        else:
+            self.filedata = tempFileData
+    def repartition(self):
+        self.landdata = partition(self.filedata, '\t<--- START LAND --->\n', '\t<--- END LAND --->\n')
+        self.populationdata = partition(self.filedata, '\t<--- START POPULATION --->\n', '\t<--- END POPULATION --->\n')
+        self.militarydata = partition(self.filedata, '\t<--- START MILITARY --->\n', '\t<--- END MILITARY --->\n')
+        self.purchasedata = partition(self.filedata, '\t<--- START PURCHASES --->\n', '\t<--- END PURCHASES --->\n')
+        self.plaguedata = partition(self.filedata, '\t<--- START PLAGUE --->\n', '\t<--- END PLAGUE --->\n')
+        self.allydata = partition(self.filedata, '\t<--- START ALLIES --->\n', '\t<--- END ALLIES --->\n')
+        self.genericdata = partition(self.filedata, '\t<--- START GENERIC --->\n', '\t<--- END GENERIC --->\n')
+    def redef(self):
+        tmp = open(id + '.wdf', 'r+b')
+        self.filedata = b64decode(tmp.read()).decode('unicode-ecape')
+        tmp.close()
+        self.repartition()

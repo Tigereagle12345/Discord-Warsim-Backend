@@ -51,3 +51,7 @@ class AdditionalColors:
     END = "\033[0m"
 class Regex:
     UKRAINE = 'slava ukraini|слава україні|glory to ukraine'
+def partition(input : str, key1 : str, key2 : str):
+    output = input.partition(key1)[2]
+    output = output.partition(key2)[0]
+    return output
