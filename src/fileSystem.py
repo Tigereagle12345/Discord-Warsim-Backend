@@ -348,3 +348,11 @@ class savefile:
         self.filedata = b64decode(tmp.read()).decode('unicode-ecape')
         tmp.close()
         self.repartition()
+    def plague(self):
+        plagueData = list(self.plaguedata)
+        for i in range(len(plagueData)):
+            plagueData[i] = plagueData[i].strip()
+            if not i == 0:
+                plagueData[i] = int(plagueData)
+        plague = warsim.plague(self.id, plagueData[0], plagueData[1], plagueData[2], plagueData[3], plagueData[4], plagueData[5], plagueData[6])
+        return plague
