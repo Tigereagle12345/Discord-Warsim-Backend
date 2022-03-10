@@ -1,5 +1,6 @@
 ### The name says it all
 import os
+import math
 import random
 import time
 import warsim
@@ -301,7 +302,7 @@ def newUser(id : str, choice : int):
     file.close()
     del file
 class savefile:
-    def __init__(self, id : str):
+    def __init__(self, id : int):
         self.id = id
         tmp = open(id + '.wdf', 'r+b')
         self.filedata = b64decode(tmp.read()).decode('unicode-ecape')
@@ -356,3 +357,52 @@ class savefile:
                 plagueData[i] = int(plagueData)
         plague = warsim.plague(self.id, plagueData[0], plagueData[1], plagueData[2], plagueData[3], plagueData[4], plagueData[5], plagueData[6])
         return plague
+    def user(self):
+        userData = list(self.genericdata)
+        for i in range(len(userData)):
+            userData[i] = userData[i].strip()
+        militaryData = list(self.militarydata)
+        for i in range(len(militaryData)):
+            militaryData[i] = militaryData[i].strip()
+        return warsim.user(self.id, userData[2], userData[1], militaryData[0], militaryData[1], militaryData[2], userData[3], userData[4], userData[5], self.plague())
+class effectScript:
+    ### Various effect commands and classes include:
+    ### Effect commands are basically an extention of python within the file
+    ### (class/struct) user{
+    ###     int Gold
+    ###     int Tech
+    ###     int XP
+    ###     plague Plague()
+    ### }
+    ### (class/struct) warscore{
+    ###     int perMan
+    ###     int perUnit
+    ###     int perForce
+    ### }
+    ### void darkAge(int mag, int userID)
+    ### void goldAge(int mag, int userID)
+    def darkAge(mag : int, userID : int):
+        targetfile = savefile(userID)
+        target = targetfile.user()
+        target.gold = math.floor(target.gold/2)
+class properties:
+    ### Purchase item data shall be formated as such
+    ### <--- START PROPERTY --->
+    ###     ID={ID}
+    ###     NAME={NAME}
+    ###     NEGATIVE_VALUE_ALLOWED={BOOL}
+    ###     <--- START EFFECT SCRIPT --->
+    ###         ...ETC...
+    ###     <--- END EFFECT SCRIPT --->
+    ### <--- END PROPERTY --->
+    def __init__(self):
+        propertylist = open('config/properties.txt', 'r')
+        self.propertylist = propertylist.read()
+def alert(id : int, msg : str):
+    if not os.path.exists('nonsave_userdata/'):
+        os.mkdir('nonsave_userdata/')
+    if os.path.exists('nonsave_userdata/' + str(id) + '.alerts.txt'):
+        alert = open('nonsave_userdata/' + str(id) + '.alerts.txt', 'r+')
+    else:
+        alert = open('nonsave_userdata/' + str(id) + '.alerts.txt', 'x')
+    alert.write()
