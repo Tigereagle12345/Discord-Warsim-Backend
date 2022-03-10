@@ -13,6 +13,12 @@ class user:
         self.level = int(TECH)
         self.xp = int(XP)
         self.plague = PLAGUE
+    def Gold(self, mod : int):
+        self.gold += mod
+        return self.gold
+    def XP(self, mod : int):
+        self.xp += mod
+        return self.xp
 class plague:
     def __init__(self, ID, EXISTS, SEV, LETH, INF, IU, IC, IT):
         self.id = ID

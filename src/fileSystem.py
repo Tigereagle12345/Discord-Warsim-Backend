@@ -283,7 +283,7 @@ def newUser(id : str, choice : int):
     file.write('\t<--- START PURCHASES --->\n')
     file.write('\t<--- END PURCHASES --->\n')
     file.write('\t<--- START ALLIES --->\n')
-    file.write('\t\t :: New users don\'t have allies, stupid')
+    file.write('\t\t :: New users don\'t have allies, stupid\n')
     file.write('\t<--- END ALLIES --->\n')
     file.write('<--- END USER --->\n')
     file.close()
@@ -336,6 +336,7 @@ class savefile:
             self.filedata = tempFileData
         else:
             self.filedata = tempFileData
+        return self
     def repartition(self):
         self.landdata = partition(self.filedata, '\t<--- START LAND --->\n', '\t<--- END LAND --->\n')
         self.populationdata = partition(self.filedata, '\t<--- START POPULATION --->\n', '\t<--- END POPULATION --->\n')
@@ -365,35 +366,19 @@ class savefile:
         for i in range(len(militaryData)):
             militaryData[i] = militaryData[i].strip()
         return warsim.user(self.id, userData[2], userData[1], militaryData[0], militaryData[1], militaryData[2], userData[3], userData[4], userData[5], self.plague())
-class effectScript:
-    ### Various effect commands and classes include:
-    ### Effect commands are basically an extention of python within the file
-    ### (class/struct) user{
-    ###     int Gold
-    ###     int Tech
-    ###     int XP
-    ###     plague Plague()
-    ### }
-    ### (class/struct) warscore{
-    ###     int perMan
-    ###     int perUnit
-    ###     int perForce
-    ### }
-    ### void darkAge(int mag, int userID)
-    ### void goldAge(int mag, int userID)
-    def darkAge(mag : int, userID : int):
-        targetfile = savefile(userID)
-        target = targetfile.user()
-        target.gold = math.floor(target.gold/2)
+class warscore:
+    perMan : int
+    perUnit : int
+    perForce : int
 class properties:
     ### Purchase item data shall be formated as such
     ### <--- START PROPERTY --->
     ###     ID={ID}
     ###     NAME={NAME}
     ###     NEGATIVE_VALUE_ALLOWED={BOOL}
-    ###     <--- START EFFECT SCRIPT --->
+    ###     <--- START EFFECTS --->
     ###         ...ETC...
-    ###     <--- END EFFECT SCRIPT --->
+    ###     <--- END EFFECTS --->
     ### <--- END PROPERTY --->
     def __init__(self):
         propertylist = open('config/properties.txt', 'r')
@@ -405,4 +390,4 @@ def alert(id : int, msg : str):
         alert = open('nonsave_userdata/' + str(id) + '.alerts.txt', 'r+')
     else:
         alert = open('nonsave_userdata/' + str(id) + '.alerts.txt', 'x')
-    alert.write()
+    alert.write(msg + '\n')
