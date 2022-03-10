@@ -1,0 +1,13 @@
+<--- START PROPERTY --->
+    ID=0
+    NAME=WARSCORE_TEST
+    NEGATIVE_VALUE_ALLOWED=TRUE
+    <--- START EFFECTS --->
+        Warscore_per_combatant={[INPUT]}
+        Warscore_per_unit={[INPUT]}
+        Warscore_per_force={[INPUT]}
+        Warscore_per_elite={[INPUT]}
+        Warscore_per_soldier={[INPUT]}
+        Warscore_per_peasant={[INPUT]}
+    <--- END EFFECTS --->
+<--- END PROPERTY --->

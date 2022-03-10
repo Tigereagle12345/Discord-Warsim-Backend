@@ -1,0 +1,12 @@
+<--- START ITEM --->
+    ID=0
+    NAME=Test Item
+    DESCRIPTION="This is a test item.|Did the test work?"
+    COST=100
+    MAINTANCE=0
+    ITEM_LEVEL=999
+    LEVEL_REQUIRED=1
+    <--- START PROPERTIES --->
+        0=10
+    <--- END PROPERTIES --->
+<--- END ITEM --->

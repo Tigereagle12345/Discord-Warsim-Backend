@@ -370,6 +370,9 @@ class warscore:
     perMan : int
     perUnit : int
     perForce : int
+    perSoldier : int
+    perElite : int
+    perPeasant : int
 class properties:
     ### Purchase item data shall be formated as such
     ### <--- START PROPERTY --->
@@ -383,6 +386,14 @@ class properties:
     def __init__(self):
         propertylist = open('config/properties.txt', 'r')
         self.propertylist = propertylist.read()
+        self.properties = self.propertylist.strip('<-- END PROPERTY --->\n').split('<--- START PROPERTY --->\n')
+    def applyProperty(self, id : int, input):
+        for i in range(len(self.properties)):
+            if 'ID=' + str(id) in self.properties[i]:
+                break
+            else:
+                pass
+        Property = self.properties[i].replace('{[INPUT]}', str(input))
 def alert(id : int, msg : str):
     if not os.path.exists('nonsave_userdata/'):
         os.mkdir('nonsave_userdata/')
