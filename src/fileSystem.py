@@ -374,7 +374,7 @@ class warscore:
     perElite : int
     perPeasant : int
 class properties:
-    ### Purchase item data shall be formated as such
+    ### Property data shall be formated as such
     ### <--- START PROPERTY --->
     ###     ID={ID}
     ###     NAME={NAME}
@@ -393,7 +393,17 @@ class properties:
                 break
             else:
                 pass
-        Property = self.properties[i].replace('{[INPUT]}', str(input))
+        Property = list(self.properties[i])
+        negativeAllowed = Property[2].strip('\tNEGATIVE_VALUE_ALLOWED=').strip('\n').lower()
+        if negativeAllowed == 'true':
+            negativeAllowed = True
+            value = input
+        else:
+            negativeAllowed = False
+            value = math.fabs(input)
+        for i in range(len(Property)):
+            Property[i] = Property[i].replace('{[INPUT]}', str(value))
+    effectlist = ['warscore_per_combatant', 'warscore_per_unit', 'warscore_per_force', 'warscore_per_elite', 'warscore_per_soldier', 'warscore_per_peasant', 'goodluck', 'badluck']   
 def alert(id : int, msg : str):
     if not os.path.exists('nonsave_userdata/'):
         os.mkdir('nonsave_userdata/')
