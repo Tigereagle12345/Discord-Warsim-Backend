@@ -403,7 +403,18 @@ class properties:
             value = math.fabs(input)
         for i in range(len(Property)):
             Property[i] = Property[i].replace('{[INPUT]}', str(value))
-    effectlist = ['warscore_per_combatant', 'warscore_per_unit', 'warscore_per_force', 'warscore_per_elite', 'warscore_per_soldier', 'warscore_per_peasant', 'goodluck', 'badluck']   
+    effectlist = [
+        'warscore_per_combatant',
+        'warscore_per_unit',
+        'warscore_per_force',
+        'warscore_per_elite',
+        'warscore_per_soldier',
+        'warscore_per_peasant',
+        'goodluck', 'badluck',
+        'xp_gain',
+        'level_limit',
+        'public_opinion'
+    ]   
 def alert(id : int, msg : str):
     if not os.path.exists('nonsave_userdata/'):
         os.mkdir('nonsave_userdata/')
