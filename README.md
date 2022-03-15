@@ -11,15 +11,15 @@ The backend also handles File IO and other such things.
 
 # TODO list
 
- - [ ] Add user process
-    - [ ] Determine how to handle saves
-    - [ ] Create save system
+ - [x] Add user process
+    - [x] Determine how to handle saves
+ - [ ] Create save system
  - [ ] Make the game playable
     - [ ] Market
         - [ ] Research result and weapon purchases
     - [ ] Research and weapons development
-    - [ ] Public Opinion
-    - [ ] XP and levels
+    - [x] Public Opinion
+    - [x] XP and levels
 - [ ] Add in some easter eggs
     - [ ] Normal easter eggs
     - [ ] Hidden trans pride flags
