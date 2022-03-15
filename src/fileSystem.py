@@ -355,8 +355,7 @@ class savefile:
             plagueData[i] = plagueData[i].strip()
             if not i == 0:
                 plagueData[i] = int(plagueData)
-        plague = warsim.plague(self.id, plagueData[0], plagueData[1], plagueData[2], plagueData[3], plagueData[4], plagueData[5], plagueData[6])
-        return plague
+        return warsim.plague(self.id, plagueData[0], plagueData[1], plagueData[2], plagueData[3], plagueData[4], plagueData[5], plagueData[6])
     def user(self):
         userData = list(self.genericdata)
         for i in range(len(userData)):

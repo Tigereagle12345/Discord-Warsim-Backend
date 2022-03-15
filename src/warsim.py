@@ -59,7 +59,7 @@ class plague:
         self.infectedurban = int(IU)
         self.infectedcountry = int(IC)
         self.infectedtowns = int(IT)
-class purchases:
+class items:
     ### Purchase item data shall be formated as such
     ### <--- START ITEM --->
     ###     ID={ID}
@@ -74,8 +74,8 @@ class purchases:
     ###     <--- END PROPERTIES --->
     ### <--- END ITEM --->
     def __init__(self):
-        purchaseList = open('config/purchases.txt', 'r')
-        self.purchaseList = purchaseList.read()     
+        itemList = open('config/items.txt', 'r')
+        self.itemList = itemList.read()     
 class land:
     def __init__(self, urban, town, rural):
         self.urban = urban
