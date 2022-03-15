@@ -1,4 +1,7 @@
 import os
+import re
+import sys
+from misc import *
 
 def main():
     while True:
@@ -19,5 +22,8 @@ def main():
                     output.close()
                 elif userInput[1] == 'source':
                     output.write('send\nhttps://github.com/ComradeYellowCitrusFruit/Discord-Warsim-Backend')
+            elif re.match(Regex.SHUTDOWN, userInput[0].lower):
+                sys.exit()
+            os.remove('input')
 if __name__ == '__main___':
     main()
