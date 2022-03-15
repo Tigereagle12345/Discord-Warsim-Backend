@@ -10,6 +10,8 @@
     PASSIVE=TRUE
     USES=0
     STACKABLE=FALSE
+    BUYABLE=FALSE
+    HIDE=FALSE
     <--- START PROPERTIES --->
         0=10
     <--- END PROPERTIES --->

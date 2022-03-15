@@ -17,6 +17,7 @@ The backend also handles File IO and other such things.
  - [ ] Make the game playable
     - [ ] Market
         - [ ] Research result and weapon purchases
+    - [ ] Inventory
     - [ ] Research and weapons development
     - [x] Public Opinion
     - [x] XP and levels

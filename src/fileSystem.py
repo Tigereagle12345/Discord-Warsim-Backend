@@ -279,8 +279,8 @@ def newUser(id : str, choice : int):
     file.write('\t\tPEASANT=' + peasant + '\n')
     file.write('\t<--- END MILITARY --->\n')
     ### TODO: Add purchases
-    file.write('\t<--- START PURCHASES --->\n')
-    file.write('\t<--- END PURCHASES --->\n')
+    file.write('\t<--- START INVENTORY --->\n')
+    file.write('\t<--- END INVENTORY --->\n')
     file.write('\t<--- START ALLIES --->\n')
     file.write('\t\t :: New users don\'t have allies, stupid\n')
     file.write('\t<--- END ALLIES --->\n')
@@ -309,7 +309,7 @@ class savefile:
         self.landdata = partition(self.filedata, '\t<--- START LAND --->\n', '\t<--- END LAND --->\n')
         self.populationdata = partition(self.filedata, '\t<--- START POPULATION --->\n', '\t<--- END POPULATION --->\n')
         self.militarydata = partition(self.filedata, '\t<--- START MILITARY --->\n', '\t<--- END MILITARY --->\n')
-        self.purchasedata = partition(self.filedata, '\t<--- START PURCHASES --->\n', '\t<--- END PURCHASES --->\n')
+        self.inventorydata = partition(self.filedata, '\t<--- START INVENTORY --->\n', '\t<--- END INVENTORY --->\n')
         self.plaguedata = partition(self.filedata, '\t<--- START PLAGUE --->\n', '\t<--- END PLAGUE --->\n')
         self.allydata = partition(self.filedata, '\t<--- START ALLIES --->\n', '\t<--- END ALLIES --->\n')
         self.genericdata = partition(self.filedata, '\t<--- START GENERIC --->\n', '\t<--- END GENERIC --->\n')
@@ -403,6 +403,7 @@ class properties:
         'warscore_per_peasant',
         'goodluck', 'badluck',
         'xp_gain',
+        'xp_multiplier',
         'level_limit',
         'public_opinion',
         'gold'
