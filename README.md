@@ -23,6 +23,6 @@ The backend also handles File IO and other such things.
 - [ ] Add in some easter eggs
     - [ ] Normal easter eggs
     - [ ] Hidden trans pride flags
-#### License and shit
+## License and shit
 [Contribution guidelines for this project](.github/contributing.md) \
 [License](LICENSE.md)
