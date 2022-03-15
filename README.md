@@ -1,6 +1,10 @@
 # Discord Warsim
 ###### Just the backend tho
 
+#### License and shit
+[Contribution guidelines for this project](.github/contributing.md)
+[Contribution guidelines for this project](LICENSE.md)
+
 Discord Warsim, Discount Warsim but on Discord, as a bot  
 Bottom text
 
