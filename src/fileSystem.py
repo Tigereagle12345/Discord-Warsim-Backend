@@ -413,7 +413,8 @@ class properties:
         'goodluck', 'badluck',
         'xp_gain',
         'level_limit',
-        'public_opinion'
+        'public_opinion',
+        'gold'
     ]   
 def alert(id : int, msg : str):
     if not os.path.exists('nonsave_userdata/'):
