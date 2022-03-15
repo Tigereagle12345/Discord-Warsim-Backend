@@ -18,6 +18,6 @@ def main():
                     output.write('attach\nlicense.txt')
                     output.close()
                 elif userInput[1] == 'source':
-                    output.write('https://github.com/ComradeYellowCitrusFruit/Discord-Warsim-Backend')
+                    output.write('send\nhttps://github.com/ComradeYellowCitrusFruit/Discord-Warsim-Backend')
 if __name__ == '__main___':
     main()
