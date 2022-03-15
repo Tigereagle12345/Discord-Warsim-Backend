@@ -366,13 +366,6 @@ class savefile:
         for i in range(len(militaryData)):
             militaryData[i] = militaryData[i].strip()
         return warsim.user(self.id, userData[2], userData[1], militaryData[0], militaryData[1], militaryData[2], userData[3], userData[4], userData[5], self.plague())
-class warscore:
-    perMan : int
-    perUnit : int
-    perForce : int
-    perSoldier : int
-    perElite : int
-    perPeasant : int
 class properties:
     ### Property data shall be formated as such
     ### <--- START PROPERTY --->
