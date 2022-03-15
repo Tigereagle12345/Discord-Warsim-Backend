@@ -2,7 +2,6 @@
 import os
 import math
 import random
-import time
 import warsim
 from base64 import b64encode, b64decode
 from misc import *
@@ -20,7 +19,7 @@ def newUser(id : str, choice : int):
     ###         {MILITARY_COMPONENT}={COUNT}
     ###     <--- END MILILITARY --->
     ###     <--- START PURCHASES --->
-    ###         {PURCHASE_ID}={STATUS}
+    ###         {PURCHASE_ID}={STATUS,COUNT}
     ###     <--- END PURCHASES --->
     ###     <--- START ALLIES --->
     ###         {ALLY's ID}

@@ -1,7 +1,7 @@
 ### A core module so to speak of the game itself,
 ### Will handle all ingame functions, and also be largly intertwined with the saving and loading processes
 class user:
-    def __init__(self, ID, GOLD, LAND, ESOLDIER, SOLDIER, PSOLDIER, TECH, LEVEL, XP, PLAGUE):
+    def __init__(self, ID, GOLD, LAND, ESOLDIER, SOLDIER, PSOLDIER, TECH, LEVEL, XP, PLAGUE, RESEARCH):
         self.id = int(ID)
         self.gold = int(GOLD)
         self.land = int(LAND)
@@ -10,9 +10,10 @@ class user:
         self.peasant = int(PSOLDIER)
         self.men = self.elite + self.troop + self.peasant
         self.tech = int(TECH)
-        self.level = int(TECH)
+        self.level = int(LEVEL)
         self.xp = int(XP)
         self.plague = PLAGUE
+        self.research = int(RESEARCH)
     def Gold(self, mod : int):
         self.gold += mod
         return self.gold

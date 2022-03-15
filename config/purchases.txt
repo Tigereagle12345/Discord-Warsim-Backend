@@ -1,11 +1,15 @@
 <--- START ITEM --->
     ID=0
     NAME=Test Item
-    DESCRIPTION="This is a test item.|Did the test work?"
+    DESCRIPTION="This is a test item.
+    Did the test work?"
     COST=100
     MAINTANCE=0
     ITEM_LEVEL=999
     LEVEL_REQUIRED=1
+    PASSIVE=TRUE
+    USES=0
+    STACKABLE=FALSE
     <--- START PROPERTIES --->
         0=10
     <--- END PROPERTIES --->
