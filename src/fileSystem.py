@@ -40,7 +40,7 @@ def newUser(id : str, choice : int):
         soldier = randStr(1000, 5000)
         peasant = randStr(1500, 7500)
         elite = randStr(50, 500)
-        urban = int(land/10) + 1
+        urban = int(land/10) 
         if urban <= 0:
             urban = 1
         country = int(land - 1/3)

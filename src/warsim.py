@@ -76,3 +76,8 @@ class purchases:
     def __init__(self):
         purchaseList = open('config/purchases.txt', 'r')
         self.purchaseList = purchaseList.read()     
+class land:
+    def __init__(self, urban, town, rural):
+        self.urban = urban
+        self.town = town
+        self.rural = rural

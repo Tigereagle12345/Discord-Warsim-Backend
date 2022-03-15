@@ -7,6 +7,7 @@ class warscore:
         self.eliteCount = elite
         self.peasantCount = peasant
         self.soldierCount = soldier
+        self.calculate()
     perMan : int
     perUnit : int
     perForce : int
