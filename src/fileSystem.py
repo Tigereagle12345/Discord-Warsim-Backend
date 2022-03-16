@@ -40,10 +40,10 @@ def newUser(id : str, choice : int):
         soldier = randStr(1000, 5000)
         peasant = randStr(1500, 7500)
         elite = randStr(50, 500)
-        urban = int(land/10) 
+        urban = int(land/5) 
         if urban <= 0:
             urban = 1
-        country = int(land - 1/3)
+        country = int((land - 1)/3)
         towns = int(land) - urban - country
         urbanPop = urban * random.randrange(1000, 200000)
         countryPop = country * random.randrange(50, 5000)
@@ -52,7 +52,7 @@ def newUser(id : str, choice : int):
         rnd = random.randrange(100)
         if rnd >= 75:
             ### Congratulations! You have a plague!
-            plague = ['Existant']
+            plague = ['Y']
             s = random.randrange(100)
             if s >= 99:
                 ### You are really fucked, Black Death level fucked
@@ -63,15 +63,6 @@ def newUser(id : str, choice : int):
                 infectivity = randStr(random.randrange(8,10) * 10, 101)
                 while int(infectivity) >= 100:
                     infectivity = str(int(infectivity) - 1)
-                plague.append(severity)
-                plague.append(lethality)
-                plague.append(infectivity)
-                infectedUrban = int(float(urbanPop) * (float(infectivity)/float(100)))
-                infectedCountry = int(float(countryPop) * (float(infectivity)/float(150)))
-                infectedTowns = int(float(townsPop) * (float(infectivity)/float(125)))
-                plague.append(str(infectedUrban))
-                plague.append(str(infectedCountry))
-                plague.append(str(infectedTowns))
             elif s >= 90:
                 ### Shit's bad man, real bad
                 severity = randStr(random.randrange(8,10) * 10, 101)
@@ -81,15 +72,6 @@ def newUser(id : str, choice : int):
                 infectivity = randStr(random.randrange(7,10) * 10, 101)
                 while int(infectivity) >= 100:
                     infectivity = str(int(infectivity) - 1)
-                plague.append(severity)
-                plague.append(lethality)
-                plague.append(infectivity)
-                infectedUrban = int(float(urbanPop) * (float(infectivity)/float(100)))
-                infectedCountry = int(float(countryPop) * (float(infectivity)/float(150)))
-                infectedTowns = int(float(townsPop) * (float(infectivity)/float(125)))
-                plague.append(str(infectedUrban))
-                plague.append(str(infectedCountry))
-                plague.append(str(infectedTowns))
             elif s >= 80:
                 ### Good luck cleaning all the bodies off the streets
                 severity = randStr(random.randrange(7,10) * 10, 101)
@@ -99,15 +81,6 @@ def newUser(id : str, choice : int):
                 infectivity = randStr(random.randrange(5,10) * 10, 101)
                 while int(infectivity) >= 100:
                     infectivity = str(int(infectivity) - 1)
-                plague.append(severity)
-                plague.append(lethality)
-                plague.append(infectivity)
-                infectedUrban = int(float(urbanPop) * (float(infectivity)/float(100)))
-                infectedCountry = int(float(countryPop) * (float(infectivity)/float(150)))
-                infectedTowns = int(float(townsPop) * (float(infectivity)/float(125)))
-                plague.append(str(infectedUrban))
-                plague.append(str(infectedCountry))
-                plague.append(str(infectedTowns))
             elif s >= 70:
                 ### Many will die
                 severity = randStr(random.randrange(6,10) * 10, 101)
@@ -117,15 +90,6 @@ def newUser(id : str, choice : int):
                 infectivity = randStr(random.randrange(5,8) * 10, 101)
                 while int(infectivity) >= 100:
                     infectivity = str(int(infectivity) - 1)
-                plague.append(severity)
-                plague.append(lethality)
-                plague.append(infectivity)
-                infectedUrban = int(float(urbanPop) * (float(infectivity)/float(100)))
-                infectedCountry = int(float(countryPop) * (float(infectivity)/float(150)))
-                infectedTowns = int(float(townsPop) * (float(infectivity)/float(125)))
-                plague.append(str(infectedUrban))
-                plague.append(str(infectedCountry))
-                plague.append(str(infectedTowns))
             elif s >= 60:
                 severity = randStr(random.randrange(4,10) * 10, 101)
                 lethality = randStr(random.randrange(5,9) * 10, 101)
@@ -134,15 +98,6 @@ def newUser(id : str, choice : int):
                 infectivity = randStr(random.randrange(5,9) * 10, 101)
                 while int(infectivity) >= 100:
                     infectivity = str(int(infectivity) - 1)
-                plague.append(severity)
-                plague.append(lethality)
-                plague.append(infectivity)
-                infectedUrban = int(float(urbanPop) * (float(infectivity)/float(100)))
-                infectedCountry = int(float(countryPop) * (float(infectivity)/float(150)))
-                infectedTowns = int(float(townsPop) * (float(infectivity)/float(125)))
-                plague.append(str(infectedUrban))
-                plague.append(str(infectedCountry))
-                plague.append(str(infectedTowns))
             elif s >= 50:
                 severity = randStr(random.randrange(4,9) * 10, 101)
                 lethality = randStr(random.randrange(4,9) * 10, 101)
@@ -151,15 +106,6 @@ def newUser(id : str, choice : int):
                 infectivity = randStr(random.randrange(3,8) * 10, 101)
                 while int(infectivity) >= 100:
                     infectivity = str(int(infectivity) - 1)
-                plague.append(severity)
-                plague.append(lethality)
-                plague.append(infectivity)
-                infectedUrban = int(float(urbanPop) * (float(infectivity)/float(100)))
-                infectedCountry = int(float(countryPop) * (float(infectivity)/float(150)))
-                infectedTowns = int(float(townsPop) * (float(infectivity)/float(125)))
-                plague.append(str(infectedUrban))
-                plague.append(str(infectedCountry))
-                plague.append(str(infectedTowns))
             elif s >= 40:
                 severity = randStr(random.randrange(4,8) * 10, 101)
                 lethality = randStr(random.randrange(3,7) * 10, 101)
@@ -168,15 +114,6 @@ def newUser(id : str, choice : int):
                 infectivity = randStr(random.randrange(2,8) * 10, 101)
                 while int(infectivity) >= 100:
                     infectivity = str(int(infectivity) - 1)
-                plague.append(severity)
-                plague.append(lethality)
-                plague.append(infectivity)
-                infectedUrban = int(float(urbanPop) * (float(infectivity)/float(100)))
-                infectedCountry = int(float(countryPop) * (float(infectivity)/float(150)))
-                infectedTowns = int(float(townsPop) * (float(infectivity)/float(125)))
-                plague.append(str(infectedUrban))
-                plague.append(str(infectedCountry))
-                plague.append(str(infectedTowns))
             elif s >= 30:
                 ### Many shall suffer, few shall die
                 severity = randStr(random.randrange(7) * 10, 101)
@@ -186,15 +123,6 @@ def newUser(id : str, choice : int):
                 infectivity = randStr(random.randrange(7) * 10, 101)
                 while int(infectivity) >= 100:
                     infectivity = str(int(infectivity) - 1)
-                plague.append(severity)
-                plague.append(lethality)
-                plague.append(infectivity)
-                infectedUrban = int(float(urbanPop) * (float(infectivity)/float(100)))
-                infectedCountry = int(float(countryPop) * (float(infectivity)/float(150)))
-                infectedTowns = int(float(townsPop) * (float(infectivity)/float(125)))
-                plague.append(str(infectedUrban))
-                plague.append(str(infectedCountry))
-                plague.append(str(infectedTowns))
             elif s >= 20:
                 severity = randStr(random.randrange(3) * 10, 101)
                 lethality = randStr(random.randrange(3) * 10, 101)
@@ -203,15 +131,6 @@ def newUser(id : str, choice : int):
                 infectivity = randStr(random.randrange(3) * 10, 101)
                 while int(infectivity) >= 100:
                     infectivity = str(int(infectivity) - 1)
-                plague.append(severity)
-                plague.append(lethality)
-                plague.append(infectivity)
-                infectedUrban = int(float(urbanPop) * (float(infectivity)/float(100)))
-                infectedCountry = int(float(countryPop) * (float(infectivity)/float(150)))
-                infectedTowns = int(float(townsPop) * (float(infectivity)/float(125)))
-                plague.append(str(infectedUrban))
-                plague.append(str(infectedCountry))
-                plague.append(str(infectedTowns))
             elif s >= 10:
                 severity = randStr(random.randrange(2) * 10, 101)
                 lethality = randStr(random.randrange(2) * 10, 101)
@@ -220,15 +139,6 @@ def newUser(id : str, choice : int):
                 infectivity = randStr(random.randrange(2) * 10, 101)
                 while int(infectivity) >= 100:
                     infectivity = str(int(infectivity) - 1)
-                plague.append(severity)
-                plague.append(lethality)
-                plague.append(infectivity)
-                infectedUrban = int(float(urbanPop) * (float(infectivity)/float(100)))
-                infectedCountry = int(float(countryPop) * (float(infectivity)/float(150)))
-                infectedTowns = int(float(townsPop) * (float(infectivity)/float(125)))
-                plague.append(str(infectedUrban))
-                plague.append(str(infectedCountry))
-                plague.append(str(infectedTowns))
             else:
                 severity = randStr(10, 101)
                 lethality = randStr(10, 101)
@@ -237,18 +147,18 @@ def newUser(id : str, choice : int):
                 infectivity = randStr(10, 101)
                 while int(infectivity) >= 100:
                     infectivity = str(int(infectivity) - 1)
-                plague.append(severity)
-                plague.append(lethality)
-                plague.append(infectivity)
-                infectedUrban = int(float(urbanPop) * (float(infectivity)/float(100)))
-                infectedCountry = int(float(countryPop) * (float(infectivity)/float(150)))
-                infectedTowns = int(float(townsPop) * (float(infectivity)/float(125)))
-                plague.append(str(infectedUrban))
-                plague.append(str(infectedCountry))
-                plague.append(str(infectedTowns))
+            plague.append(severity)
+            plague.append(lethality)
+            plague.append(infectivity)
+            infectedUrban = int(float(urbanPop) * (float(infectivity)/float(50)))
+            infectedCountry = int(float(countryPop) * (float(infectivity)/float(200)))
+            infectedTowns = int(float(townsPop) * (float(infectivity)/float(100)))
+            plague.append(str(infectedUrban))
+            plague.append(str(infectedCountry))
+            plague.append(str(infectedTowns))
         else:
             ### Congratulations! You don't currently suffer from a plague!
-            plague = ['Non-existant', '0 :: No severity', '0 :: No lethality', '0 :: No infectivity', '0 :: None infected','0 :: None infected','0 :: None infected',]
+            plague = ['N', '0 :: No severity', '0 :: No lethality', '0 :: No infectivity', '0 :: None infected','0 :: None infected','0 :: None infected',]
     file = open(id + '.wdf', 'x')
     file.write('<--- START USER --->\n')
     file.write('\t<--- START GENERIC --->\n')
@@ -270,8 +180,13 @@ def newUser(id : str, choice : int):
     file.write('\t\tTOWN=' + townsPop + '\n')
     file.write('\t<--- END POPULATION --->\n')
     file.write('\t<--- START PLAGUE --->\n')
-    for i in plague:
-        file.write('\t\t' + i + '\n')
+    file.write('\t\tEXISTS=' + plague[0] + '\n')
+    file.write('\t\tSEV=' + plague[1] + '\n')
+    file.write('\t\tLETHAL=' + plague[2] + '\n')
+    file.write('\t\tINF=' + plague[3] + '\n')
+    file.write('\t\tINF_URBAN=' + plague[4] + '\n')
+    file.write('\t\tINF_RURAL=' + plague[5] + '\n')
+    file.write('\t\tINF_TOWN=' + plague[6] + '\n')
     file.write('\t<--- END PLAGUE --->\n')
     file.write('\t<--- START MILITARY --->\n')
     file.write('\t\tELITE=' + elite + '\n')
