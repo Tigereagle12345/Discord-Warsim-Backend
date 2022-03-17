@@ -278,7 +278,8 @@ class savefile:
         militaryData = list(self.militarydata)
         for i in range(len(militaryData)):
             militaryData[i] = militaryData[i].strip()
-        return warsim.user(self.id, userData[2], userData[1], militaryData[0], militaryData[1], militaryData[2], userData[3], userData[4], userData[5], self.plague())
+        self.User = warsim.user(self.id, userData[2], userData[1], militaryData[0], militaryData[1], militaryData[2], userData[3], userData[4], userData[5], self.plague())
+        return self.User
 class properties:
     ### Property data shall be formated as such
     ### <--- START PROPERTY --->
@@ -303,10 +304,10 @@ class properties:
         negativeAllowed = Property[2].strip('\tNEGATIVE_VALUE_ALLOWED=').strip('\n').lower()
         if negativeAllowed == 'true':
             negativeAllowed = True
-            value = input
+            value = int(input)
         else:
             negativeAllowed = False
-            value = math.fabs(input)
+            value = int(math.fabs(input))
         for i in range(len(Property)):
             Property[i] = Property[i].replace('{[INPUT]}', str(value))
     effectlist = [
