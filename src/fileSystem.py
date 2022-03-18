@@ -255,7 +255,7 @@ class savefile:
         self.landdata = partition(self.filedata, '\t<--- START LAND --->\n', '\t<--- END LAND --->\n')
         self.populationdata = partition(self.filedata, '\t<--- START POPULATION --->\n', '\t<--- END POPULATION --->\n')
         self.militarydata = partition(self.filedata, '\t<--- START MILITARY --->\n', '\t<--- END MILITARY --->\n')
-        self.purchasedata = partition(self.filedata, '\t<--- START PURCHASES --->\n', '\t<--- END PURCHASES --->\n')
+        self.inventorydata = partition(self.filedata, '\t<--- START PURCHASES --->\n', '\t<--- END PURCHASES --->\n')
         self.plaguedata = partition(self.filedata, '\t<--- START PLAGUE --->\n', '\t<--- END PLAGUE --->\n')
         self.allydata = partition(self.filedata, '\t<--- START ALLIES --->\n', '\t<--- END ALLIES --->\n')
         self.genericdata = partition(self.filedata, '\t<--- START GENERIC --->\n', '\t<--- END GENERIC --->\n')
