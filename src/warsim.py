@@ -73,6 +73,20 @@ class items:
     ###         ...ETC...
     ###     <--- END PROPERTIES --->
     ### <--- END ITEM --->
+    ###
+    ### I would recomend formatting it like this, as it is more python-friendly
+    ### iten_name = {
+    ###     "id": ID,
+    ###     "name": NAME,
+    ###     "decription": DESCRIPTION,
+    ###     "cost": COST,
+    ###     "maintance": MAINTANCE_COST,
+    ###     ...ETC...
+    ###     "properties": {
+    ###         "effect_id": EFFECT,
+    ###         ...ECT...
+    ###     }
+    ### }
     def __init__(self):
         itemList = open('config/items.txt', 'r')
         self.itemList = itemList.read()     
