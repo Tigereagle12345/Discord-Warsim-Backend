@@ -74,7 +74,9 @@ class items:
     ###     <--- END PROPERTIES --->
     ### <--- END ITEM --->
     ###
-    ### I would recomend formatting it like this, as it is more python-friendly
+    ### I would recomend formatting it like this, as it is more python-friendly.
+    ### Doing this will also allow you to access the data easily, just make the file where the data is stored a .py file and use: from file_name import item_name. NOTE: filename should not include th .py
+    ###
     ### iten_name = {
     ###     "id": ID,
     ###     "name": NAME,
@@ -87,6 +89,7 @@ class items:
     ###         ...ECT...
     ###     }
     ### }
+    
     def __init__(self):
         itemList = open('config/items.txt', 'r')
         self.itemList = itemList.read()     
